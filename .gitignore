@@ -1,0 +1,11 @@
+*
+# do not ignore these files and directories
+!.gitignore
+!tmux
+!tmux/**
+!fish
+!fish/**
+
+# ignore everything in these directories
+tmux/plugins/
+fish/plugins/
