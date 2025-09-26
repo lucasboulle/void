@@ -5,7 +5,12 @@
 !tmux/**
 !fish
 !fish/**
+!nvim
+!nvim/**
 
 # ignore everything in these directories
 tmux/plugins/
 fish/plugins/
+
+# ignore lazy lockfile (gets regenerated automatically)
+nvim/lazy-lock.json
