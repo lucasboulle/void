@@ -7,6 +7,8 @@
 !fish/**
 !nvim
 !nvim/**
+!alacritty
+!alacritty/**
 
 # ignore everything in these directories
 tmux/plugins/
