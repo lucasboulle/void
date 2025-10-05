@@ -4,3 +4,6 @@ bold = { family = "FiraCode Nerd Font", style = "Bold" }
 italic = { family = "FiraCode Nerd Font", style = "Italic" }
 bold_italic = { family = "FiraCode Nerd Font", style = "Bold Italic" }
 size = 14.0
+
+[window]
+startup_mode = "Maximized"
