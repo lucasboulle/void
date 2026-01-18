@@ -1,3 +1,5 @@
+#~/.config/fish/config.fish
+
 set fish_greeting
 
 # Startup starship prompt
@@ -5,6 +7,14 @@ starship init fish | source
 
 # Detect OS
 set -l OS (uname)
+
+# --- macOS: ensure uv' (pip --user) in PATH ---
+if test "$OS" = "Darwin"
+    set -l PY_USER_BIN (python3 -c 'import site; print(site.getuserbase()+"/bin")')
+    test -d $PY_USER_BIN; and fish_add_path $PY_USER_BIN
+
+    test -d $HOME/.local/bin; and fish_add_path $HOME/.local/bin
+end
 
 if test "$OS" != "Darwin"
     # Linux-only configuration
@@ -25,4 +35,3 @@ if test "$OS" != "Darwin"
         eval (keychain --eval --quiet --agents ssh $keys)
     end
 end
-
