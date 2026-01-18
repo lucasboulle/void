@@ -23,4 +23,8 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+-- GitSigns (Added per request)
+map("n", "]c", function() require("gitsigns").next_hunk() end, { desc = "Next git hunk" })
+map("n", "[c", function() require("gitsigns").prev_hunk() end, { desc = "Prev git hunk" })
+map("n", "<leader>ph", function() require("gitsigns").preview_hunk() end, { desc = "Preview git hunk" })
+map("n", "<leader>sh", function() require("gitsigns").stage_hunk() end, { desc = "Stage git hunk" })
