@@ -1,0 +1,92 @@
+onboarding = false
+
+[keys]
+prefix = "ctrl+space"
+
+[theme]
+name = "vesper"
+auto_switch = false
+
+# Cores de estado mais saturadas e com matizes bem separados.
+# O herdr usa: blocked=red, working=yellow, done=teal, idle=green, unknown=overlay0
+[theme.custom]
+red = "#ff2e63"     # blocked: precisa de você
+yellow = "#ffd000"  # working
+teal = "#00e5ff"    # done: terminou e você ainda não viu
+
+[ui]
+agent_panel_sort = "priority"
+show_agent_labels_on_pane_borders = true
+# Formas diferentes por estado: × blocked, ◐ working, ✓ done, ○ idle, · unknown
+status_indicators = "symbols"
+sidebar_width = 32
+sidebar_max_width = 40
+
+# Linhas de agente: ícone + palavra de estado colorida (só nos estados que pedem ação)
+[ui.sidebar.agents]
+row_gap = 0
+rows = [
+  ["state_icon", { token = "state_text", bold = true, rules = [
+    { equals = "blocked", fg = "#ff2e63", bold = true },
+    { equals = "done", fg = "#00e5ff", bold = true },
+    { equals = "working", fg = "#ffd000", bold = false },
+    { equals = "idle", hide = true },
+    { equals = "unknown", hide = true },
+  ] }, { token = "$cli", bold = true, rules = [
+    # glifo do CLI, reportado pelo plugin local-plugins/agent-glyphs
+    { equals = "", fg = "#d97757" },      # claude (nf cod-claude)
+    { equals = "", fg = "#e8e8e8" },      # codex (nf cod-openai)
+    { equals = "", fg = "#4285f4" },      # antigravity/agy (fonte própria, agent-glyphs/font)
+    { equals = "\U0001f99e", fg = "#ff4d2e" },  # openclaw (🦞, emoji ignora fg)
+  ] }, { token = "workspace", bold = true, rules = [
+    { starts_with = "◆ ", fg = "#ff8c42" },
+    { starts_with = "■ ", fg = "#8a94b8" },
+    { starts_with = "▲ ", fg = "#ff5fd2" },
+    { starts_with = "★ ", fg = "#b388ff" },
+    { starts_with = "♠ ", fg = "#5c9cff" },
+    { starts_with = "✶ ", fg = "#ff9ec7" },
+    { starts_with = "✦ ", fg = "#e8e8e8" },
+    { starts_with = "◢ ", fg = "#d4a373" },
+    { starts_with = "▼ ", fg = "#c792ea" },
+    { starts_with = "✚ ", fg = "#4fb3a9" },
+    { starts_with = "◈ ", fg = "#f78c6c" },
+    { starts_with = "♣ ", fg = "#82aaff" },
+    { starts_with = "◩ ", fg = "#e0a3ff" },
+    { starts_with = "✿ ", fg = "#ff6ac1" },
+    { starts_with = "❖ ", fg = "#d08770" },
+    { starts_with = "✧ ", fg = "#c9b97a" },
+  ] }, "tab"],
+  [{ token = "agent", dim = true }],
+]
+
+# Linhas de space (workspace): sempre 2 linhas. A 2ª linha nunca fica vazia porque
+# o estado aparece sempre (idle/unknown apagados), então todos têm a mesma altura.
+[ui.sidebar.spaces]
+row_gap = 0
+rows = [
+  ["state_icon", { token = "workspace", bold = true, rules = [
+    { starts_with = "◆ ", fg = "#ff8c42" },
+    { starts_with = "■ ", fg = "#8a94b8" },
+    { starts_with = "▲ ", fg = "#ff5fd2" },
+    { starts_with = "★ ", fg = "#b388ff" },
+    { starts_with = "♠ ", fg = "#5c9cff" },
+    { starts_with = "✶ ", fg = "#ff9ec7" },
+    { starts_with = "✦ ", fg = "#e8e8e8" },
+    { starts_with = "◢ ", fg = "#d4a373" },
+    { starts_with = "▼ ", fg = "#c792ea" },
+    { starts_with = "✚ ", fg = "#4fb3a9" },
+    { starts_with = "◈ ", fg = "#f78c6c" },
+    { starts_with = "♣ ", fg = "#82aaff" },
+    { starts_with = "◩ ", fg = "#e0a3ff" },
+    { starts_with = "✿ ", fg = "#ff6ac1" },
+    { starts_with = "❖ ", fg = "#d08770" },
+    { starts_with = "✧ ", fg = "#c9b97a" },
+  ] }],
+  [{ token = "state_text", rules = [
+    { equals = "blocked", fg = "#ff2e63", bold = true },
+    { equals = "done", fg = "#00e5ff", bold = true },
+    { equals = "working", fg = "#ffd000" },
+    { equals = "idle", dim = true },
+    { equals = "unknown", dim = true },
+  ] }, { token = "branch", dim = true }, "git_status"],
+]

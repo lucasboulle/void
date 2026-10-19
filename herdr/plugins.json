@@ -1,0 +1,80 @@
+[
+  {
+    "plugin_id": "boulle.agent-glyphs",
+    "name": "Agent Glyphs",
+    "version": "0.1.0",
+    "min_herdr_version": "0.9.0",
+    "description": "Reporta em cada pane o glifo do CLI de agente rodando ($cli; a cor vem das regras no config.toml)",
+    "manifest_path": "/Users/boulle/.config/herdr/local-plugins/agent-glyphs/herdr-plugin.toml",
+    "plugin_root": "/Users/boulle/.config/herdr/local-plugins/agent-glyphs",
+    "enabled": true,
+    "platforms": [
+      "macos"
+    ],
+    "startup": [
+      {
+        "command": [
+          "/usr/bin/python3",
+          "-I",
+          "glyph.py"
+        ]
+      }
+    ],
+    "events": [
+      {
+        "on": "pane.agent_detected",
+        "command": [
+          "/usr/bin/python3",
+          "-I",
+          "glyph.py"
+        ]
+      }
+    ],
+    "source": {
+      "kind": "local"
+    }
+  },
+  {
+    "plugin_id": "boulle.space-marks",
+    "name": "Space Marks",
+    "version": "0.1.0",
+    "min_herdr_version": "0.9.0",
+    "description": "Dá a cada space um símbolo aleatório (a cor vem do símbolo, via regras no config.toml)",
+    "manifest_path": "/Users/boulle/.config/herdr/local-plugins/space-marks/herdr-plugin.toml",
+    "plugin_root": "/Users/boulle/.config/herdr/local-plugins/space-marks",
+    "enabled": true,
+    "platforms": [
+      "macos"
+    ],
+    "startup": [
+      {
+        "command": [
+          "/usr/bin/python3",
+          "-I",
+          "mark.py"
+        ]
+      }
+    ],
+    "events": [
+      {
+        "on": "workspace.created",
+        "command": [
+          "/usr/bin/python3",
+          "-I",
+          "mark.py"
+        ]
+      },
+      {
+        "on": "workspace.renamed",
+        "command": [
+          "/usr/bin/python3",
+          "-I",
+          "mark.py"
+        ]
+      }
+    ],
+    "source": {
+      "kind": "local"
+    }
+  }
+]

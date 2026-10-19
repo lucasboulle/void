@@ -1,0 +1,17 @@
+id = "boulle.space-marks"
+name = "Space Marks"
+version = "0.1.0"
+min_herdr_version = "0.9.0"
+description = "Dá a cada space um símbolo aleatório (a cor vem do símbolo, via regras no config.toml)"
+platforms = ["macos"]
+
+[[startup]]
+command = ["/usr/bin/python3", "-I", "mark.py"]
+
+[[events]]
+on = "workspace.created"
+command = ["/usr/bin/python3", "-I", "mark.py"]
+
+[[events]]
+on = "workspace.renamed"
+command = ["/usr/bin/python3", "-I", "mark.py"]

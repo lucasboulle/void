@@ -1,0 +1,13 @@
+id = "boulle.agent-glyphs"
+name = "Agent Glyphs"
+version = "0.1.0"
+min_herdr_version = "0.9.0"
+description = "Reporta em cada pane o glifo do CLI de agente rodando ($cli; a cor vem das regras no config.toml)"
+platforms = ["macos"]
+
+[[startup]]
+command = ["/usr/bin/python3", "-I", "glyph.py"]
+
+[[events]]
+on = "pane.agent_detected"
+command = ["/usr/bin/python3", "-I", "glyph.py"]

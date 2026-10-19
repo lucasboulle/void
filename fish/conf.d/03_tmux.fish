@@ -1,14 +1,22 @@
 # Safe auto-attach/create tmux for interactive Fish shells (portable redirs)
+# tmux is the default multiplexer everywhere EXCEPT ghostty, which uses herdr
+# (see 03_herdr.fish), and Apple's Terminal.app, which gets a plain shell.
 
 status is-interactive; or return
 
 # Opt-outs / environments where tmux is annoying
-if set -q NO_TMUX_START \
-    or test "$TERM_PROGRAM" = "vscode" \
-    or set -q VSCODE_PID \
-    or set -q VSCODE_CWD \
-    or test "$TERM" = "dumb" \
+if set -q NO_TMUX_START
+    or test "$TERM_PROGRAM" = "vscode"
+    or test "$TERM_PROGRAM" = "Apple_Terminal"
+    or set -q VSCODE_PID
+    or set -q VSCODE_CWD
+    or test "$TERM" = "dumb"
     or set -q VSCODE_INJECTION
+    return
+end
+
+# ghostty is herdr's terminal; let 03_herdr.fish own it
+if set -q GHOSTTY_RESOURCES_DIR; or test "$TERM_PROGRAM" = "ghostty"
     return
 end
 
@@ -17,7 +25,8 @@ if set -q SSH_TTY; and not set -q TMUX_START_ON_SSH
     return
 end
 
-# Don't nest
+# Don't nest (inside herdr or tmux)
+test "$HERDR_ENV" = "1"; and return
 set -q TMUX; and return
 
 # Require tmux

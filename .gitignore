@@ -9,10 +9,26 @@
 !nvim/**
 !alacritty
 !alacritty/**
+!aerospace
+!aerospace/**
+!ghostty
+!ghostty/**
+!herdr
+!herdr/**
 
 # ignore everything in these directories
 tmux/plugins/
 fish/plugins/
+herdr/plugins/
+herdr/session-snapshots/
+
+# ignore herdr runtime and backup files
+herdr/*.log
+herdr/*.sock*
+herdr/*.bak*
+herdr/session.json
+herdr/release-notes.json
+herdr/.plugins.lock
 
 # ignore lazy lockfile (gets regenerated automatically)
 nvim/lazy-lock.json
