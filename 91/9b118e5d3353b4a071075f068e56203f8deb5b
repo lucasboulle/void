@@ -1,0 +1,55 @@
+aerospace/aerospace.toml
+  s_3209d9068f6c61::t_d54d3af8ea5504 238,240,243,245,248,250,281,283,286,288,291,293,296,298,301-310,312,314,318,320,323,325,328,330,333,335,339,341,348,350
+  s_3209d9068f6c61::t_6944ab5a5238d2 253-279,321,326,331,336,342,351
+  s_3209d9068f6c61::t_0393484a7c1dbc 57-59
+  s_63702e9876a5b4::t_120ca47f350c7a 60-61,117-123,142-143,206,234-237,239,241-242,244,246-247,249,251-252,280,282,284-285,287,289-290,292,294-295,297,299-300,311,313,315-317,319,322,324,327,329,332,334,337-338,340,343-347,349,352-356
+aerospace/move-detected.sh
+  s_63702e9876a5b4::t_26a423a5201dde 7
+  s_63702e9876a5b4::t_e6df09d4951658 1-6,8-17
+fish/conf.d/01_aliases.fish
+  s_b0f4b1ef95d0e9::t_07ef078d487f10 33-36
+fish/conf.d/03_herdr.fish
+  s_a63ee442be0ea6::t_278201efb7abff 1-2,6-7,21,31
+fish/conf.d/03_tmux.fish
+  s_a63ee442be0ea6::t_bc37006404f44a 2,18-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "919b118e5d3353b4a071075f068e56203f8deb5b",
+  "prompts": {},
+  "sessions": {
+    "s_3209d9068f6c61": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e67effa9-b321-4425-8720-12cf2ddf0be2",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "lucas boulle <lucas@boulle.dev>"
+    },
+    "s_63702e9876a5b4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "46c8a871-7118-4199-8142-24ec13ab8e55",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "lucas boulle <lucas@boulle.dev>"
+    },
+    "s_a63ee442be0ea6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a194d8-0a80-78d1-b1d6-5405e065d2c6",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "lucas boulle <lucas@boulle.dev>"
+    },
+    "s_b0f4b1ef95d0e9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "de379f08-8863-494e-841b-da9b7878d702",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "lucas boulle <lucas@boulle.dev>"
+    }
+  }
+}
