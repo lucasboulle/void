@@ -1,10 +1,10 @@
-# Auto-launch/attach herdr — ghostty ONLY.
-# Every other terminal (alacritty, etc.) keeps using tmux (see 03_tmux.fish).
+# Auto-launch/attach herdr in Ghostty and Alacritty.
+# Other terminals keep their existing behavior (see 03_tmux.fish).
 
 status is-interactive; or return
 
-# Only take over ghostty; anywhere else fall through so tmux can run.
-set -q GHOSTTY_RESOURCES_DIR; or test "$TERM_PROGRAM" = "ghostty"; or return
+# Only take over Ghostty and Alacritty.
+set -q GHOSTTY_RESOURCES_DIR; or test "$TERM_PROGRAM" = "ghostty"; or set -q ALACRITTY_WINDOW_ID; or return
 
 # Opt-outs
 if set -q NO_HERDR_START; or test "$TERM" = "dumb"
@@ -18,6 +18,7 @@ end
 
 # Don't nest: bail if already inside a herdr pane
 test "$HERDR_ENV" = "1"; and return
+set -q TMUX; and return
 
 # Require herdr
 type -q herdr; or return
@@ -27,4 +28,4 @@ type -q herdr; or return
 # When you detach it exits 0 and we drop to a normal shell.
 herdr; and return
 
-# herdr failed to start — keep a normal shell (no tmux fallback in ghostty).
+# herdr failed to start — keep a normal shell (no tmux fallback).

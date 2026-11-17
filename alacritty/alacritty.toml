@@ -2,11 +2,45 @@
 TERM = "xterm-256color"
 
 [font]
-normal = { family = "FiraCode Nerd Font", style = "Regular" }
-bold = { family = "FiraCode Nerd Font", style = "Bold" }
-italic = { family = "FiraCode Nerd Font", style = "Italic" }
-bold_italic = { family = "FiraCode Nerd Font", style = "Bold Italic" }
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
 size = 14.0
 
 [window]
 startup_mode = "Maximized"
+
+# Vesper — same theme as Ghostty.
+
+[colors.primary]
+background = "#101010"
+foreground = "#ffffff"
+
+[colors.cursor]
+cursor = "#acb1ab"
+text = "#ffffff"
+
+[colors.selection]
+background = "#988049"
+text = "#b9beb8"
+
+[colors.normal]
+black = "#101010"
+red = "#f5a191"
+green = "#90b99f"
+yellow = "#e6b99d"
+blue = "#aca1cf"
+magenta = "#e29eca"
+cyan = "#ea83a5"
+white = "#a0a0a0"
+
+[colors.bright]
+black = "#7e7e7e"
+red = "#ff8080"
+green = "#99ffe4"
+yellow = "#ffc799"
+blue = "#b9aeda"
+magenta = "#ecaad6"
+cyan = "#f591b2"
+white = "#ffffff"

@@ -1,5 +1,5 @@
 # Safe auto-attach/create tmux for interactive Fish shells (portable redirs)
-# tmux is the default multiplexer everywhere EXCEPT ghostty, which uses herdr
+# tmux is the default multiplexer everywhere EXCEPT Ghostty and Alacritty, which use herdr
 # (see 03_herdr.fish), and Apple's Terminal.app, which gets a plain shell.
 
 status is-interactive; or return
@@ -15,8 +15,8 @@ if set -q NO_TMUX_START
     return
 end
 
-# ghostty is herdr's terminal; let 03_herdr.fish own it
-if set -q GHOSTTY_RESOURCES_DIR; or test "$TERM_PROGRAM" = "ghostty"
+# Ghostty and Alacritty use herdr; let 03_herdr.fish own them
+if set -q GHOSTTY_RESOURCES_DIR; or test "$TERM_PROGRAM" = "ghostty"; or set -q ALACRITTY_WINDOW_ID
     return
 end
 

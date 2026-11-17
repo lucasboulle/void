@@ -22,13 +22,15 @@ fish/plugins/
 herdr/plugins/
 herdr/session-snapshots/
 
-# ignore herdr runtime and backup files
+# ignore herdr and aerospace runtime and backup files
 herdr/*.log
 herdr/*.sock*
 herdr/*.bak*
 herdr/session.json
 herdr/release-notes.json
 herdr/.plugins.lock
+aerospace/*.log
+aerospace/*.bak*
 
 # ignore lazy lockfile (gets regenerated automatically)
 nvim/lazy-lock.json

@@ -31,3 +31,6 @@ alias gl='git log --oneline --graph --decorate'
 alias gco='git checkout'
 alias gb='git branch'
 alias gd='git diff'
+
+# ----- Claude -----
+alias cl='claude'
